@@ -16,84 +16,84 @@ Ex.: Para exemplificar a função recursiva que será criada, abaixo 3 exemplos 
 */
 
 const itens = [
-    {
-        nome: 'Menu 1',
+  {
+    nome: "Menu 1",
+    itens: [
+      {
+        nome: "Menu 1.1",
+        itens: [],
+      },
+      {
+        nome: "Menu 1.2",
+        itens: [],
+      },
+      {
+        nome: "Menu 1.3",
         itens: [
-            {
-                nome: 'Menu 1.1',
-                itens: []
-            },
-            {
-                nome: 'Menu 1.2',
-                itens: []
-            },
-            {
-                nome: 'Menu 1.3',
-                itens: [
-                    {
-                        nome: 'Menu 1.3.1',
-                        itens: []
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        nome: 'Menu 2',
+          {
+            nome: "Menu 1.3.1",
+            itens: [],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    nome: "Menu 2",
+    itens: [
+      {
+        nome: "Menu 2.1",
         itens: [
-            {
-                nome: 'Menu 2.1',
+          {
+            nome: "Menu 2.1.1",
+            itens: [
+              {
+                nome: "Menu 2.1.1.1",
                 itens: [
-                    {
-                        nome: 'Menu 2.1.1',
-                        itens: [
-                            {
-                                nome: 'Menu 2.1.1.1',
-                                itens: [
-                                    {
-                                        nome: 'Menu 2.1.1.1.1',
-                                        itens: []
-                                    },
-                                    {
-                                        nome: 'Menu 2.1.1.1.2',
-                                        itens: []
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        nome: 'Menu 2.1.2',
-                        itens: []
-                    }
-                ]
-            },
-            {
-                nome: 'Menu 2.2',
-                itens: [
-                    {
-                        nome: 'Menu 2.2.1',
-                        itens: []
-                    }
-                ]
-            }
-        ]
-    }
+                  {
+                    nome: "Menu 2.1.1.1.1",
+                    itens: [],
+                  },
+                  {
+                    nome: "Menu 2.1.1.1.2",
+                    itens: [],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            nome: "Menu 2.1.2",
+            itens: [],
+          },
+        ],
+      },
+      {
+        nome: "Menu 2.2",
+        itens: [
+          {
+            nome: "Menu 2.2.1",
+            itens: [],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 function funcaoRecursiva(arrayDeItens, nomeItem) {
-    for (let i = 0; i < arrayDeItens.length; i++) {
-        if (arrayDeItens[i].nome === nomeItem) {
-            return nomeItem;
-        } else if (arrayDeItens[i].itens.length > 0) {
-            let saida = funcaoRecursiva(arrayDeItens[i].itens, nomeItem);
-            if (saida !== undefined) {
-                return `${arrayDeItens[i].nome} > ${saida}`;
-            }
-        }
+  for (let i = 0; i < arrayDeItens.length; i++) {
+    if (arrayDeItens[i].nome === nomeItem) {
+      return nomeItem;
+    } else if (arrayDeItens[i].itens.length > 0) {
+      let saida = funcaoRecursiva(arrayDeItens[i].itens, nomeItem);
+      if (saida !== undefined) {
+        return `${arrayDeItens[i].nome} > ${saida}`;
+      }
     }
+  }
 }
-console.log(funcaoRecursiva(itens, 'Menu 2.1.1.1.2'));
+console.log(funcaoRecursiva(itens, "Menu 2.1.1.1.2"));
 
 // arrayDeItens.forEach(item => {
 //     if (item.nome === nomeItem) {
